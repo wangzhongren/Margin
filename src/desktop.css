@@ -32,6 +32,9 @@
 .desktop-app .title { gap: 2px; }
 .desktop-app .title strong { font-size: 13px; letter-spacing: -.01em; }
 .desktop-app .title small { font-size: 10px; }
+.desktop-app .title-display { max-width: 310px; padding: 2px 7px; border: 0; border-radius: 6px; background: transparent; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; font-weight: 700; letter-spacing: -.01em; cursor: text; }
+.desktop-app .title-display:hover { background: rgba(31,31,29,.06); }
+.desktop-app .title-input { width: 240px; height: 26px; padding: 0 8px; border: 1px solid rgba(31,31,29,.2); border-radius: 7px; background: white; color: #20201e; font: 700 13px Arial,sans-serif; text-align: center; outline: none; box-shadow: 0 0 0 3px rgba(31,31,29,.06); }
 
 .desktop-app header .actions {
   display: flex;
