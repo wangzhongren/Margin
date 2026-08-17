@@ -1,188 +1,159 @@
+<div align="center">
+
 # Margin
 
-> Think beside the page.
+**Think beside the page.**
 
-Margin is a local-first visual workspace for reading, annotating, and thinking alongside documents. Import a PDF or create a blank canvas, then draw, highlight, add movable text notes, insert images, and return to your work later from the built-in history.
+A local-first desktop workspace for PDF annotation, visual notes, and freehand thinking.
 
-Everything is stored locally in SQLite. Your documents and annotations stay on your own machine.
+[Download](https://github.com/wangzhongren/Margin/releases/latest) · [Report an issue](https://github.com/wangzhongren/Margin/issues) · [Build from source](#development)
 
-## Why Margin?
+</div>
 
-Most PDF readers keep annotations trapped inside the document. Margin adds dedicated space around every PDF page, giving you room to think beyond the original layout—like writing in the margins of a physical book, but with an expandable visual toolkit.
+![Margin home screen](docs/images/home.png)
 
-## Features
+## What is Margin?
 
-### PDF workspace
+Margin gives documents room to breathe. Import a PDF and write beyond its original boundaries, or create a blank multi-page workspace for drawings, images, and movable notes.
 
-- Import and render PDFs page by page with PDF.js
-- Dedicated note margins on both sides of every PDF page
-- Draw and highlight directly across the document or margin area
-- Add movable text notes anywhere on the page
-- Preserve the original PDF aspect ratio and page order
+It is designed as a private desktop tool: your PDFs, images, annotations, and history are stored locally in SQLite and never uploaded to a third-party service.
 
-### Blank canvas
+> Margin 是一款本地优先的桌面批注工具。你可以逐页阅读 PDF，在页面两侧记录想法，也可以创建多页空白画布进行绘画和整理。
 
-- Create multi-page blank documents
-- Add new blank pages at any time
-- Import PNG, JPEG, WebP, or GIF images onto new pages
-- Draw and write over imported images
+## Download
 
-### Annotation tools
+Download the latest installers from [GitHub Releases](https://github.com/wangzhongren/Margin/releases/latest).
 
-- Freehand pen with custom colors
-- Translucent highlighter
-- Eraser
-- Text notes with drag handles and delete controls
-- Undo and redo for drawing strokes
-- Adjustable zoom
+| Platform | Package |
+| --- | --- |
+| Windows x64 | `Margin.Setup.*.exe` |
+| macOS Apple Silicon | `Margin-*-arm64.dmg` |
+| macOS Intel | `Margin-*.dmg` |
 
-### Local history
+Margin is currently unsigned. On first launch, macOS or Windows may display a security warning. Only download builds published from this repository.
 
-- Automatic background saving
-- SQLite-based project history
-- Reopen and continue previous projects
-- Store original PDF files together with their annotations
-- Persist drawings, text notes, blank pages, and imported images
-- Delete projects from the history screen
+## The workspace
 
-## How it works
+![Margin blank workspace](docs/images/workspace.png)
 
-1. Choose **Import PDF** or **Create blank** from the home screen.
-2. Use the left toolbar to draw, highlight, erase, or add text.
-3. For PDF projects, use the side margins for extended notes.
-4. For blank projects, add pages or import images from the top toolbar.
-5. Margin saves changes automatically to the local SQLite database.
-6. Open **History** to resume an earlier workspace.
+### Read and annotate PDFs
 
-## Tech stack
+- Render PDFs page by page with PDF.js
+- Write in dedicated margins on both sides of every page
+- Draw, highlight, erase, and add movable text notes
+- Keep the original document layout visible while expanding the thinking space
 
-- [React 19](https://react.dev/) and TypeScript
-- [Vite](https://vite.dev/) for development and production builds
-- [PDF.js](https://mozilla.github.io/pdf.js/) for page-by-page PDF rendering
-- [Express](https://expressjs.com/) for the local API
-- [SQLite](https://www.sqlite.org/) with `better-sqlite3` for persistence
-- SVG overlays for pressure-free drawing and annotations
+### Create freely
 
-## Getting started
+- Start with a blank page instead of importing a document
+- Add as many pages as you need
+- Import PNG, JPEG, WebP, and GIF images
+- Draw and place text directly over imported images
 
-Prebuilt macOS and Windows packages are available from the repository's [GitHub Actions](https://github.com/wangzhongren/Margin/actions) artifacts. Tagged versions are published under [Releases](https://github.com/wangzhongren/Margin/releases).
+### Continue later
+
+- Save changes automatically in the background
+- Reopen previous work from History
+- Persist PDFs, images, drawings, notes, and page structure
+- Delete projects without managing files manually
+
+## Tools
+
+| Tool | Purpose |
+| --- | --- |
+| Pen | Freehand drawing with a custom color |
+| Highlighter | Translucent emphasis over documents |
+| Eraser | Remove drawn strokes visually |
+| Text | Add editable notes and drag them to a new position |
+| Undo / Redo | Step through drawing changes |
+| Zoom | Fit the page or inspect details |
+
+## Local data and privacy
+
+Margin does not require an account or cloud service.
+
+Desktop data is stored at:
+
+```text
+macOS: ~/Library/Application Support/Margin/data/boards.sqlite
+Windows: %APPDATA%/Margin/data/boards.sqlite
+```
+
+The database contains project metadata, annotation state, imported images, and original PDF data. Removing the database resets local history, so back it up before reinstalling or moving to another computer.
+
+## Technology
+
+- React 19 and TypeScript
+- Electron
+- Vite
+- PDF.js
+- Express
+- SQLite with `better-sqlite3`
+- SVG annotation overlays
+
+## Development
 
 ### Requirements
 
-- Node.js 22 or newer
+- Node.js 22+
 - npm
 
-### Installation
+### Run the web development environment
 
 ```bash
 git clone git@github.com:wangzhongren/Margin.git
 cd Margin
 npm install
-```
-
-### Start the app
-
-```bash
 npm run dev
 ```
 
-This starts both services:
+The frontend runs at `http://127.0.0.1:5173` and the local API at `http://127.0.0.1:3001`.
 
-- Web app: [http://127.0.0.1:5173](http://127.0.0.1:5173)
-- Local API: [http://127.0.0.1:3001](http://127.0.0.1:3001)
-
-You can also run them separately:
-
-```bash
-npm run dev:web
-npm run dev:api
-```
-
-### Desktop app for macOS
-
-Run Margin in its own Electron window:
+### Run as an Electron app
 
 ```bash
 npm run desktop
 ```
 
-Build an installable `.dmg`, a zipped application, and a standalone `.app`:
+### Build installers locally
 
 ```bash
+# macOS
 npm run dist:mac
+
+# Windows
+npm run dist:win
 ```
 
-Build outputs are written to `release/`. Desktop data is stored separately at:
-
-```text
-~/Library/Application Support/Margin/data/boards.sqlite
-```
-
-Unsigned local builds may require choosing **Open Anyway** in macOS **System Settings → Privacy & Security** the first time they are launched.
-
-### Production build
-
-```bash
-npm run build
-npm run preview
-```
-
-## Local data
-
-Margin creates its SQLite database at:
-
-```text
-data/boards.sqlite
-```
-
-The database contains project metadata, annotation state, imported images, and original PDF data. Database files are excluded from Git by default.
-
-To reset all local history, stop the application and remove `data/boards.sqlite` together with its `-shm` and `-wal` companion files.
+Build outputs are written to `release/`. GitHub Actions also builds Windows x64, macOS Apple Silicon, and macOS Intel packages for every push to `main`. Tags matching `v*` publish a GitHub Release automatically.
 
 ## Project structure
 
 ```text
 Margin/
-├── data/                 # Local SQLite database (ignored by Git)
-├── server/
-│   └── index.mjs         # Express API and SQLite schema
-├── src/
-│   ├── App.tsx           # Workspace, PDF rendering, tools, and history UI
-│   ├── history.css       # History page styles
-│   ├── notes.css         # PDF margins and text-note styles
-│   ├── styles.css        # Core application styles
-│   └── main.tsx          # React entry point
-├── index.html
+├── .github/workflows/     # Cross-platform desktop builds
+├── docs/images/           # README screenshots
+├── electron/              # Electron main process
+├── server/                # Express API and SQLite persistence
+├── src/                   # React workspace and interface
+├── data/                  # Local web-development database
 ├── package.json
-└── vite.config.ts        # Vite configuration and API proxy
+└── vite.config.ts
 ```
-
-## Privacy
-
-Margin is local-first. It does not upload your PDFs, images, drawings, or notes to a third-party service. Files are processed in the browser and persisted through the local API into SQLite on your machine.
-
-## Current limitations
-
-- Designed primarily for local desktop use
-- No real-time collaboration or cloud synchronization
-- Drawing undo/redo currently applies to strokes, not every text or page operation
-- Exporting an annotated project back to PDF is not yet available
-- Very large PDFs or embedded images may increase SQLite database size
 
 ## Roadmap
 
-- Export annotated projects to PDF or image bundles
-- Page thumbnails and faster document navigation
+- Export annotated projects back to PDF
+- Page thumbnails and document navigation
 - Selection, resizing, and richer text formatting
 - Search across projects and notes
-- Keyboard shortcuts
-- Optional cloud synchronization
-- Collaborative workspaces
+- Keyboard shortcuts and native application menus
+- Optional encrypted synchronization
 
 ## Contributing
 
-Issues and pull requests are welcome. If you are proposing a larger change, open an issue first so the interaction and data model can be discussed.
+Issues and pull requests are welcome. For larger interaction or data-model changes, please open an issue before starting implementation.
 
 ## License
 
-No license has been added yet. Until one is chosen, the source code remains under the repository owner's copyright.
+No open-source license has been selected yet. Unless a license is added, the source remains under the repository owner's copyright.
