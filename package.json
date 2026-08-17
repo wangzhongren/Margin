@@ -1,6 +1,6 @@
 {
   "name": "margin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A local-first visual workspace for PDFs, drawings, and margin notes.",
   "author": "wangzhongren",
   "private": true,
@@ -39,15 +39,32 @@
     "appId": "com.wangzhongren.margin",
     "productName": "Margin",
     "asar": true,
-    "asarUnpack": ["node_modules/better-sqlite3/**/*"],
-    "files": ["dist/**/*", "electron/**/*", "server/**/*", "package.json"],
-    "directories": { "output": "release" },
+    "asarUnpack": [
+      "node_modules/better-sqlite3/**/*"
+    ],
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "server/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
     "mac": {
+      "icon": "build/icon.png",
       "category": "public.app-category.productivity",
-      "target": ["dmg", "zip"]
+      "target": [
+        "dmg",
+        "zip"
+      ]
     },
     "win": {
-      "target": ["nsis"]
+      "icon": "build/icon.ico",
+      "target": [
+        "nsis"
+      ]
     }
   }
 }
