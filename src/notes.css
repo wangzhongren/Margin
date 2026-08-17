@@ -1,0 +1,21 @@
+.page-paper.with-notes { background: #faf9f5; }
+.page-paper.with-notes::before,
+.page-paper.with-notes::after { content: ""; position: absolute; top: 0; bottom: 0; width: 1px; background: #e4e1d9; z-index: 2; }
+.page-paper.with-notes::before { left: 220px; }
+.page-paper.with-notes::after { right: 220px; }
+.page-paper canvas { inset: auto; top: 0; height: 100%; display: block; background: white; }
+.margin-hint { position: absolute; top: 16px; width: 220px; text-align: center; text-transform: uppercase; letter-spacing: .12em; font-size: 9px; color: #bbb8af; }
+.margin-hint.left { left: 0; }
+.margin-hint.right { right: 0; }
+.blank-image { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: contain; background: white; }
+.tool-text .drawing { cursor: text; }
+.text-tip { position: fixed; z-index: 35; top: 80px; left: 50%; transform: translateX(-50%); padding: 8px 13px; border-radius: 8px; background: #20201ee8; color: white; font-size: 12px; pointer-events: none; box-shadow: 0 6px 18px #28251e25; }
+.text-note { position: absolute; z-index: 5; width: 180px; border: 1px solid #d7d3c8; border-radius: 8px; overflow: hidden; background: #fffef9ef; box-shadow: 0 4px 12px #28251e12; }
+.text-note:focus { border-color: #8f8b80; box-shadow: 0 0 0 3px #20201e12; }
+.note-handle { height: 24px; padding: 0 5px 0 10px; display: flex; align-items: center; justify-content: space-between; background: #f0eee7; color: #aaa69e; cursor: grab; touch-action: none; user-select: none; }
+.note-handle:active { cursor: grabbing; }
+.note-handle button { width: 20px; height: 20px; border: 0; border-radius: 5px; background: transparent; color: #88847a; line-height: 16px; cursor: pointer; }
+.note-handle button:hover { background: #ddd9cf; color: #302f2b; }
+.text-note textarea { display: block; width: 100%; min-height: 70px; resize: vertical; border: 0; background: transparent; padding: 9px 10px; color: inherit; font: 14px/1.45 Arial, sans-serif; outline: none; }
+.text-note textarea::placeholder { color: #aaa69d; }
+.text-note:focus-within { border-color: #8f8b80; box-shadow: 0 0 0 3px #20201e12; }

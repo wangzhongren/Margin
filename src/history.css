@@ -1,0 +1,23 @@
+.history-link { justify-self: end; height: 36px; padding: 0 14px; border: 1px solid #dfddd6; border-radius: 9px; background: white; font-weight: 600; font-size: 13px; }
+.view-history { margin: 4px 0 13px; border: 0; background: transparent; text-decoration: underline; text-underline-offset: 3px; color: #5f5d57; font-size: 13px; }
+.history-page { overflow: auto; min-height: 100%; background: #f2f1ed; }
+.history-page header h2 { margin: 0; font-size: 15px; }
+.history-content { width: min(1000px, calc(100% - 40px)); margin: 0 auto; padding: 65px 0 100px; }
+.history-heading { display: flex; justify-content: space-between; align-items: end; margin-bottom: 28px; }
+.history-heading h1 { margin: 0 0 7px; font-size: 30px; letter-spacing: -.04em; }
+.history-heading p { margin: 0; color: #85827a; }
+.history-heading span { color: #8c8981; font-size: 12px; }
+.history-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(260px,1fr)); gap: 14px; }
+.history-grid article { position: relative; min-width: 0; }
+.history-open { width: 100%; height: 180px; display: flex; flex-direction: column; align-items: flex-start; padding: 22px; border: 1px solid #dedcd5; border-radius: 15px; background: white; text-align: left; box-shadow: 0 3px 12px #29261f08; }
+.history-open:hover { border-color: #aaa79e; transform: translateY(-2px); box-shadow: 0 10px 25px #29261f12; }
+.history-icon { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 11px; margin-bottom: 28px; background: #efeee9; }
+.history-icon.pdf { background: #20201e; color: #d9ff43; }
+.history-open strong { max-width: calc(100% - 20px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 16px; }
+.history-open small { margin-top: 6px; color: #918e86; }
+.history-delete { position: absolute; top: 12px; right: 12px; width: 28px; height: 28px; border: 0; border-radius: 7px; background: transparent; color: #8f8b83; font-size: 20px; z-index: 2; }
+.history-delete:hover { background: #f0eee9; color: #b94737; }
+.history-empty { min-height: 300px; border: 1px dashed #d1cec6; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #85827a; text-align: center; }
+.history-empty svg { width: 28px; height: 28px; }
+.history-empty h3 { margin: 15px 0 5px; color: #33322f; }
+.history-empty p { margin: 0; font-size: 13px; }

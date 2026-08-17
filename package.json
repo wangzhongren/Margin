@@ -1,0 +1,30 @@
+{
+  "name": "margin",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c blue,green \"node server/index.mjs\" \"vite --host 127.0.0.1\"",
+    "dev:web": "vite --host 127.0.0.1",
+    "dev:api": "node server/index.mjs",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "6.0.2",
+    "better-sqlite3": "^13.0.3",
+    "concurrently": "^10.0.5",
+    "express": "^5.2.1",
+    "pdfjs-dist": "^6.2.108",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "typescript": "5.9.3",
+    "vite": "8.0.13"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/express": "^5.0.6",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3"
+  }
+}

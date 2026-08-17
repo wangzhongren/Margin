@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# Local SQLite workspace data
+data/*.sqlite
+data/*.sqlite-shm
+data/*.sqlite-wal
+
+# Environment files
+.env
+.env.*
+!.env.example
