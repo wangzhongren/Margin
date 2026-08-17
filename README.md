@@ -156,4 +156,4 @@ Issues and pull requests are welcome. For larger interaction or data-model chang
 
 ## License
 
-No open-source license has been selected yet. Unless a license is added, the source remains under the repository owner's copyright.
+Margin is released under the [MIT License](LICENSE).
