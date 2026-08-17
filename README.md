@@ -65,6 +65,8 @@ Most PDF readers keep annotations trapped inside the document. Margin adds dedic
 
 ## Getting started
 
+Prebuilt macOS and Windows packages are available from the repository's [GitHub Actions](https://github.com/wangzhongren/Margin/actions) artifacts. Tagged versions are published under [Releases](https://github.com/wangzhongren/Margin/releases).
+
 ### Requirements
 
 - Node.js 22 or newer
