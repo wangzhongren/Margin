@@ -1,0 +1,6 @@
+.desktop-app header { padding-left: 92px; -webkit-app-region: drag; user-select: none; }
+.desktop-app header button, .desktop-app header input, .desktop-app header .actions, .desktop-app header .title { -webkit-app-region: no-drag; }
+.desktop-app .brand { min-width: 130px; }
+.desktop-app .window-back { position: fixed; left: 18px; top: 82px; z-index: 45; height: 36px; padding: 0 12px; display: flex; align-items: center; gap: 7px; border: 1px solid #dfddd6; border-radius: 9px; background: rgba(255,255,255,.96); box-shadow: 0 5px 16px #29261f12; font-size: 12px; font-weight: 600; }
+.desktop-app .window-back svg { width: 16px; height: 16px; }
+@media (max-width:1050px) { .desktop-app header { padding-left: 82px; } .desktop-app .brand { min-width: auto; } }

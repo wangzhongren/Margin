@@ -35,7 +35,7 @@ async function createWindow() {
     if (url.startsWith("https://") || url.startsWith("http://")) shell.openExternal(url);
     return { action: "deny" };
   });
-  await mainWindow.loadURL(`http://127.0.0.1:${PORT}`);
+  await mainWindow.loadURL(`http://127.0.0.1:${PORT}?desktop=1`);
 }
 
 app.whenReady().then(createWindow);
