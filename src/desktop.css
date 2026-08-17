@@ -1,6 +1,105 @@
-.desktop-app header { padding-left: 92px; -webkit-app-region: drag; user-select: none; }
-.desktop-app header button, .desktop-app header input, .desktop-app header .actions, .desktop-app header .title { -webkit-app-region: no-drag; }
-.desktop-app .brand { min-width: 130px; }
-.desktop-app .window-back { position: fixed; left: 18px; top: 82px; z-index: 45; height: 36px; padding: 0 12px; display: flex; align-items: center; gap: 7px; border: 1px solid #dfddd6; border-radius: 9px; background: rgba(255,255,255,.96); box-shadow: 0 5px 16px #29261f12; font-size: 12px; font-weight: 600; }
-.desktop-app .window-back svg { width: 16px; height: 16px; }
-@media (max-width:1050px) { .desktop-app header { padding-left: 82px; } .desktop-app .brand { min-width: auto; } }
+/* Electron-only chrome and desktop layout */
+.desktop-app header {
+  height: 64px;
+  padding: 0 20px 0 92px;
+  border-bottom: 1px solid rgba(31,31,29,.09);
+  background: rgba(250,250,248,.92);
+  backdrop-filter: blur(22px) saturate(1.4);
+  -webkit-app-region: drag;
+  user-select: none;
+}
+
+.desktop-app header button,
+.desktop-app header input,
+.desktop-app header .actions,
+.desktop-app header .title { -webkit-app-region: no-drag; }
+
+.desktop-app .brand {
+  min-width: 126px;
+  gap: 9px;
+  font-size: 17px;
+  letter-spacing: -.025em;
+}
+
+.desktop-app .brand b {
+  width: 27px;
+  height: 27px;
+  border-radius: 8px;
+  font-size: 15px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+}
+
+.desktop-app .title { gap: 2px; }
+.desktop-app .title strong { font-size: 13px; letter-spacing: -.01em; }
+.desktop-app .title small { font-size: 10px; }
+
+.desktop-app header .actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  white-space: nowrap;
+}
+
+.desktop-app header .actions button,
+.desktop-app header .history-link {
+  height: 32px;
+  padding: 0 11px;
+  border-color: rgba(31,31,29,.11);
+  border-radius: 8px;
+  background: rgba(255,255,255,.74);
+  box-shadow: 0 1px 2px rgba(31,31,29,.04);
+  font-size: 12px;
+  transition: background .15s, border-color .15s, transform .15s;
+}
+
+.desktop-app header .actions button:hover,
+.desktop-app header .history-link:hover {
+  background: white;
+  border-color: rgba(31,31,29,.2);
+}
+
+.desktop-app header .actions button:active,
+.desktop-app header .history-link:active { transform: translateY(1px); }
+.desktop-app header .actions svg { width: 15px; height: 15px; }
+
+/* Back belongs beside the brand, not in the action cluster. */
+.desktop-app .editor header .actions > button:last-child {
+  position: fixed;
+  left: 226px;
+  top: 16px;
+  padding-left: 9px;
+}
+
+.desktop-app .editor header .actions > button:last-child::after {
+  content: "";
+  position: absolute;
+  left: -15px;
+  width: 1px;
+  height: 18px;
+  background: rgba(31,31,29,.1);
+}
+
+.desktop-app .document-space { inset: 64px 0 0; padding-top: 52px; }
+.desktop-app .page-label { top: -22px; color: #8b8880; }
+.desktop-app .page-paper { box-shadow: 0 1px 2px rgba(31,31,29,.06), 0 18px 55px rgba(31,31,29,.12); }
+
+.desktop-app aside {
+  left: 16px;
+  border-color: rgba(31,31,29,.1);
+  box-shadow: 0 12px 35px rgba(31,31,29,.1);
+}
+
+.desktop-app .zoom {
+  bottom: 18px;
+  border-color: rgba(31,31,29,.1);
+  box-shadow: 0 10px 28px rgba(31,31,29,.11);
+}
+
+.desktop-app .history-content { padding-top: 56px; }
+
+@media (max-width:1120px) {
+  .desktop-app header { padding-left: 84px; }
+  .desktop-app .brand { min-width: auto; }
+  .desktop-app .editor header .actions > button:last-child { left: 205px; }
+}
