@@ -96,6 +96,28 @@ npm run dev:web
 npm run dev:api
 ```
 
+### Desktop app for macOS
+
+Run Margin in its own Electron window:
+
+```bash
+npm run desktop
+```
+
+Build an installable `.dmg`, a zipped application, and a standalone `.app`:
+
+```bash
+npm run dist:mac
+```
+
+Build outputs are written to `release/`. Desktop data is stored separately at:
+
+```text
+~/Library/Application Support/Margin/data/boards.sqlite
+```
+
+Unsigned local builds may require choosing **Open Anyway** in macOS **System Settings → Privacy & Security** the first time they are launched.
+
 ### Production build
 
 ```bash
