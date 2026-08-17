@@ -13,7 +13,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "desktop": "npm run build && electron .",
-    "dist:mac": "npm run build && electron-builder --mac"
+    "dist:mac": "npm run build && electron-builder --mac",
+    "dist:win": "npm run build && electron-builder --win"
   },
   "dependencies": {
     "@vitejs/plugin-react": "6.0.2",
@@ -44,6 +45,9 @@
     "mac": {
       "category": "public.app-category.productivity",
       "target": ["dmg", "zip"]
+    },
+    "win": {
+      "target": ["nsis"]
     }
   }
 }

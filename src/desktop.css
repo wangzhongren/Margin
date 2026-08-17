@@ -1,18 +1,18 @@
 /* Electron-only chrome and desktop layout */
 .desktop-app header {
   height: 64px;
-  padding: 0 20px 0 92px;
+  padding: 0 20px;
   border-bottom: 1px solid rgba(31,31,29,.09);
   background: rgba(250,250,248,.92);
   backdrop-filter: blur(22px) saturate(1.4);
-  -webkit-app-region: drag;
   user-select: none;
 }
 
-.desktop-app header button,
-.desktop-app header input,
-.desktop-app header .actions,
-.desktop-app header .title { -webkit-app-region: no-drag; }
+.desktop-darwin header { padding-left: 92px; -webkit-app-region: drag; }
+.desktop-darwin header button,
+.desktop-darwin header input,
+.desktop-darwin header .actions,
+.desktop-darwin header .title { -webkit-app-region: no-drag; }
 
 .desktop-app .brand {
   min-width: 126px;
@@ -64,14 +64,19 @@
 .desktop-app header .actions svg { width: 15px; height: 15px; }
 
 /* Back belongs beside the brand, not in the action cluster. */
-.desktop-app .editor header .actions > button:last-child {
+.desktop-app .editor header .actions > button:last-child,
+.desktop-app .history-page header .history-link {
   position: fixed;
-  left: 226px;
+  left: 174px;
   top: 16px;
   padding-left: 9px;
 }
 
-.desktop-app .editor header .actions > button:last-child::after {
+.desktop-darwin .editor header .actions > button:last-child,
+.desktop-darwin .history-page header .history-link { left: 232px; }
+
+.desktop-app .editor header .actions > button:last-child::after,
+.desktop-app .history-page header .history-link::after {
   content: "";
   position: absolute;
   left: -15px;
@@ -99,7 +104,10 @@
 .desktop-app .history-content { padding-top: 56px; }
 
 @media (max-width:1120px) {
-  .desktop-app header { padding-left: 84px; }
+  .desktop-darwin header { padding-left: 84px; }
   .desktop-app .brand { min-width: auto; }
-  .desktop-app .editor header .actions > button:last-child { left: 205px; }
+  .desktop-darwin .editor header .actions > button:last-child,
+  .desktop-darwin .history-page header .history-link { left: 211px; }
+  .desktop-win32 .editor header .actions > button:last-child,
+  .desktop-win32 .history-page header .history-link { left: 158px; }
 }

@@ -22,8 +22,10 @@ async function createWindow() {
     minHeight: 680,
     title: "Margin",
     backgroundColor: "#efeeeb",
-    titleBarStyle: "hiddenInset",
-    trafficLightPosition: { x: 18, y: 20 },
+    ...(process.platform === "darwin" ? {
+      titleBarStyle: "hiddenInset",
+      trafficLightPosition: { x: 18, y: 20 },
+    } : {}),
     webPreferences: {
       contextIsolation: true,
       nodeIntegration: false,
@@ -35,7 +37,7 @@ async function createWindow() {
     if (url.startsWith("https://") || url.startsWith("http://")) shell.openExternal(url);
     return { action: "deny" };
   });
-  await mainWindow.loadURL(`http://127.0.0.1:${PORT}?desktop=1`);
+  await mainWindow.loadURL(`http://127.0.0.1:${PORT}?desktop=1&platform=${process.platform}`);
 }
 
 app.whenReady().then(createWindow);
